@@ -72,7 +72,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'borathonproject.wsgi.application'
 
-
+DATABASE_ROUTERS = (
+    'accounts.dbrouter.AccountsDBRouter',
+    'customers.dbrouter.CustomersDBRouter',
+    'transactions.dbrouter.TransactionsDBRouter',
+)
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
@@ -80,7 +84,19 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    },
+    'accounts': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'accounts/accounts-db.sqlite3',
+    },
+    'customers': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'customers/customers-db.sqlite3',
+    },
+    'transactions': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'transactions/transactions-db.sqlite3',
+    },
 }
 
 
