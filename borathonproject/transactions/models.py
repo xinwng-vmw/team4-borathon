@@ -7,5 +7,7 @@ class Transaction(models.Model):
     id = ShortUUIDField(unique=True)
     amount = models.FloatField(default=0.00)
     type = models.BinaryField()  # 0 for Credit, 1 for Debit
+    
+    associated_account = models.ForeignKey(
+        "Account", on_delete=models.SET_NULL)
     # not too sure about the foreign key
-    associated_account = models.ForeignKey("Account")
