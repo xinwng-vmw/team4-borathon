@@ -1,8 +1,9 @@
 from django.db import models
-from django.contrib.auth.models import User
 from shortuuidfield import ShortUUIDField
 
 # Create your models here.
+
+
 class Account(models.Model):
     id = ShortUUIDField(unique=True, primary_key=True)
     account_number = ShortUUIDField(unique=True)
